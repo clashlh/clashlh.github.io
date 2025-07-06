@@ -1,1 +1,476 @@
-<p>Clash </p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clash导航-clash节点-clash官网</title>
+    <meta name="description" content="企业版支持Clash订阅API接口批量管理节点，通过Clash订阅日志审计追踪资源使用。个人用户启用Clash免费订阅流量保险后，突发性超额使用将触发智能熔断机制，避免账户欠费风险。（关键词：Clash订阅API接口 / Clash订阅日志审计 / Clash免费订阅流量保险）
+">
+    <meta name="keywords" content="clash导航,clash节点,clash官网">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style>
+    :root {
+        --bg-dark: #0a0a0a;
+        --accent-blue: #00f3ff;
+        --accent-purple: #7a5fff;
+        --text-light: #e0e0e0;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', 'Segoe UI', sans-serif;
+    }
+
+    body {
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.6;
+    }
+
+    /* 科技感导航 */
+    .cyber-nav {
+        background: rgba(10, 10, 10, 0.95);
+        padding: 1rem 5%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(122, 95, 255, 0.2);
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .nav-links a {
+        color: var(--text-light);
+        text-decoration: none;
+        position: relative;
+        padding: 0.5rem 0;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-blue);
+        transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    /* 赛博风格Banner */
+    .cyber-banner {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 5%;
+        margin-top: 80px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .banner-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 50% 50%,
+            rgba(122, 95, 255, 0.1) 0%,
+            rgba(10, 10, 10, 1) 70%);
+        z-index: -1;
+    }
+
+    .banner-content h1 {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .banner-content p {
+        font-size: 1.2rem;
+        color: #a0a0a0;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+    }
+
+    .cta-link {
+        display: inline-block;
+        padding: 1.2rem 2.5rem;
+        border: 2px solid var(--accent-blue);
+        border-radius: 5px;
+        text-decoration: none;
+        color: var(--accent-blue);
+        font-weight: 600;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s;
+        margin: 0 1rem;
+    }
+
+    .cta-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 243, 255, 0.2),
+            transparent);
+        transition: 0.5s;
+    }
+
+    .cta-link:hover {
+        background: rgba(0, 243, 255, 0.1);
+        transform: translateY(-3px);
+    }
+
+    .cta-link:hover::before {
+        left: 100%;
+    }
+
+    /* 价格套餐 */
+    .pricing-section {
+        padding: 6rem 5%;
+        background: #111;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .pricing-card {
+        background: #1a1a1a;
+        padding: 2.5rem;
+        border-radius: 8px;
+        border: 1px solid #333;
+        transition: transform 0.3s;
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .pricing-card.recommended {
+        border-color: var(--accent-purple);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .recommended-badge {
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background: var(--accent-purple);
+        color: white;
+        padding: 0.5rem 3rem;
+        transform: rotate(45deg);
+        font-size: 0.8rem;
+    }
+
+    .price {
+        font-size: 3rem;
+        margin: 1.5rem 0;
+        color: var(--accent-blue);
+    }
+
+    .price small {
+        font-size: 1rem;
+        color: #888;
+    }
+
+    .feature-list {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
+    .feature-list li {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #333;
+    }
+
+    /* 用户评价 */
+    .testimonial-section {
+        padding: 6rem 5%;
+    }
+
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .testimonial-card {
+        background: #1a1a1a;
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid #333;
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 1rem;
+    }
+
+    .rating {
+        color: #ffd700;
+        margin: 0.5rem 0;
+    }
+
+    /* 页脚 */
+    .cyber-footer {
+        background: #080808;
+        padding: 4rem 5%;
+        border-top: 1px solid #222;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-column h4 {
+        color: var(--accent-blue);
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links a {
+        color: #888;
+        text-decoration: none;
+        padding: 0.5rem 0;
+        display: block;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent-blue);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+        color: #666;
+        transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+        color: var(--accent-purple);
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .banner-content h1 {
+            font-size: 2.5rem;
+        }
+
+        .cta-link {
+            margin: 1rem 0;
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <nav class="cyber-nav">
+        <div id="3tLXH5wsxa" class="nav-container">
+            <div id="0hYMhJPRrh" class="logo">clash导航</div>
+            <div id="RftcPIuNoq" class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#features">功能</a>
+                <a href="#pricing">套餐</a>
+                <a href="#contact">支持</a>
+            </div>
+        </div>
+    </nav>
+    <section class="cyber-banner" id="home">
+        <div id="6p44RpaVvx" class="banner-overlay"></div>
+        <div id="dXSmTjtmVO" class="banner-content">
+            <h1>解锁网络极速体验</h1>
+            <p>全球500+服务器节点，毫秒级响应速度，军事级加密保护您的隐私安全</p>
+            <div id="ihmBtjQDGX">
+                <a href="https://china-vpn.cc" class="cta-link">免费注册</a>
+                <a href="https://china-vpn.cc" class="cta-link">立即体验</a>
+            </div>
+        </div>
+    </section>
+    <section class="pricing-section" id="pricing">
+        <h2 class="section-title">专属加速套餐</h2>
+        <div id="MfBV2NdjxB" class="pricing-grid">
+            <div id="8Ay1IABbWK" class="pricing-card">
+                <h3>基础版</h3>
+                <div id="MvI24vk4Iu" class="price">¥9<small>/月</small></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 100+ 全球节点</li>
+                    <li><i class="fas fa-check"></i> 500GB 月流量</li>
+                    <li><i class="fas fa-check"></i> 3 设备同时连接</li>
+                    <li><i class="fas fa-times"></i> 优先技术支持</li>
+                </ul>
+                <a href="#" class="cta-link">立即订阅</a>
+            </div>
+            <div id="V2Ts7U0s4P" class="pricing-card recommended">
+                <div id="VsfSV2J71W" class="recommended-badge">推荐</div>
+                <h3>专业版</h3>
+                <div id="Fna3G62G9g" class="price">¥19<small>/月</small></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 全节点解锁</li>
+                    <li><i class="fas fa-check"></i> 无限流量</li>
+                    <li><i class="fas fa-check"></i> 5 设备同时连接</li>
+                    <li><i class="fas fa-check"></i> 专属客服支持</li>
+                </ul>
+                <a href="#" class="cta-link">立即订阅</a>
+            </div>
+            <div id="nGxJbg3hgk" class="pricing-card">
+                <h3>企业版</h3>
+                <div id="9oZlYdyhAs" class="price">定制</div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> 专属服务器</li>
+                    <li><i class="fas fa-check"></i> 无限设备连接</li>
+                    <li><i class="fas fa-check"></i> 定制化解决方案</li>
+                    <li><i class="fas fa-check"></i> 24/7 技术支持</li>
+                </ul>
+                <a href="#" class="cta-link">联系销售</a>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial-section" id="testimonials">
+        <h2 class="section-title">用户评价</h2>
+        <div id="ne0vPw8G7u" class="testimonial-grid">
+            <div id="RyLTm9hLa7" class="testimonial-card">
+                <div id="dClBTgjV49" class="user-info">
+                    <img src="avatar1.jpg" alt="用户头像" class="user-avatar">
+                    <div id="huFBjW5iNq">
+                        <h4>王先生</h4>
+                        <div id="hwAuJhraYB" class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>使用clashlh导航后游戏延迟从120ms降到30ms，简直是竞技玩家的神器！</p>
+            </div>
+            <div id="4i3n9C2Vy1" class="testimonial-card">
+                <div id="NY6pOGKF27" class="user-info">
+                    <img src="avatar2.jpg" alt="用户头像" class="user-avatar">
+                    <div id="i682S3kwUK">
+                        <h4>李女士</h4>
+                        <div id="KcctqFeFmx" class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>海外访问国内资源速度提升明显，客服响应也非常及时，五星好评！</p>
+            </div>
+        </div>
+    </section>
+    <footer class="cyber-footer" id="contact">
+        <div id="Lnj6KY0yrT" class="footer-grid">
+            <div id="BI1tw9oc9O" class="footer-column">
+                <h4>clash导航</h4>
+                <p>致力于提供最安全快速的网络加速解决方案</p>
+                <div id="i7mIkhonHe" class="social-links">
+                    <a href="#"><i class="fab fa-weibo"></i></a>
+                    <a href="#"><i class="fab fa-weixin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div id="ACVabx6Pi7" class="footer-column">
+                <h4>快速链接</h4>
+                <ul class="footer-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#pricing">套餐价格</a></li>
+                    <li><a href="#testimonials">用户评价</a></li>
+                    <li><a href="#">服务条款</a></li>
+                </ul>
+            </div>
+            <div id="0qka9wZ7rc" class="footer-column">
+                <h4>联系我们</h4>
+                <ul class="footer-links">
+                    <li>support@clash导航.com</li>
+                    <li>400-123-4567</li>
+                    <li>工作日 9:00-21:00</li>
+                </ul>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 3rem; color: #666;">
+            © 2025 Clash导航. All rights reserved.
+        </p>
+    </footer>
+</body>
+
+</html> class导航 cls导航卡 slam导航
